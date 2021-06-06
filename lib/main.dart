@@ -7,6 +7,6 @@ void main ()
   runApp(MaterialApp
   (
     title: "Home Page",
-    home: ListagemDeAluno()),
+    home: TelaInicio()),
   );
 }
