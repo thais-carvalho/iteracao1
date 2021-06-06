@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteracao1/pages/grade_check_page.dart';
 class LoginAlunoTela extends StatefulWidget {
   const LoginAlunoTela({ Key? key }) : super(key: key);
 
@@ -47,7 +48,10 @@ class _LoginAlunoTelaState extends State<LoginAlunoTela> {
                 child: Text("Entrar", style: TextStyle(color: Colors.white, fontSize: 25),),
                 elevation: 0,
                 color: Color(0xff1620f5),
-                onPressed: (){},
+                onPressed: () async
+                {
+                  await Navigator.push(context, MaterialPageRoute(builder: (context) => PortalDoAluno()));
+                },
               ),
             ],
           ) ,

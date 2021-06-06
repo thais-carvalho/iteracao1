@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteracao1/pages/student_crud_page.dart';
 class ListagemDeAluno extends StatefulWidget {
   const ListagemDeAluno({ Key? key }) : super(key: key);
 
@@ -18,6 +19,15 @@ class _ListagemDeAlunoState extends State<ListagemDeAluno> {
         centerTitle: true,
         backgroundColor: Color(0xff1620f5),
       ),
+      floatingActionButton: FloatingActionButton
+      (
+        onPressed: () async
+        {
+          await Navigator.push(context, MaterialPageRoute(builder: (context) => CadastroAlunoTela()));
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.blue,
+      ),
       body: Container (
         padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
         decoration: BoxDecoration(
@@ -27,7 +37,6 @@ class _ListagemDeAlunoState extends State<ListagemDeAluno> {
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Cadastrar aluno", style: TextStyle(color: Colors.white, fontSize: 30)),
               SizedBox(),
               DataTable(
                 columns: [

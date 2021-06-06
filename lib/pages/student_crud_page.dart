@@ -64,7 +64,10 @@ class _CadastroAlunoTelaState extends State<CadastroAlunoTela> {
                 child: Text("Cadastrar", style: TextStyle(color: Colors.white, fontSize: 25),),
                 elevation: 0,
                 color: Color(0xff1620f5),
-                onPressed: (){},
+                onPressed: ()
+                {
+                  Navigator.pop(context);
+                },
               ),
             ],
           ) ,

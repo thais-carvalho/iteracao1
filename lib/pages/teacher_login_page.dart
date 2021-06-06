@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteracao1/pages/student_list_page.dart';
 
 class LoginProfessorTela extends StatefulWidget {
   const LoginProfessorTela({ Key? key }) : super(key: key);
@@ -48,7 +49,10 @@ class _LoginProfessorTelaState extends State<LoginProfessorTela> {
                 child: Text("Entrar", style: TextStyle(color: Colors.white, fontSize: 25),),
                 elevation: 0,
                 color: Color(0xff1620f5),
-                onPressed: (){},
+                onPressed: () async
+                {
+                  await Navigator.push(context, MaterialPageRoute(builder: (context) => ListagemDeAluno()));
+                },
               ),
             ],
           ) ,
