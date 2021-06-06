@@ -7,3 +7,4 @@ Primeira iteração do projeto de PS
 - Nalberty Vitório
 - Nícolas Arthur
 - Varley Miranda
+- Sílvio Otávio
