@@ -1,12 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:iteracao1/models/student_model.dart';
 class CadastroDeNotas extends StatefulWidget {
-  const CadastroDeNotas({ Key? key }) : super(key: key);
+
+  final Student student;
+
+  CadastroDeNotas({this.student});
 
   @override
   _CadastroDeNotasState createState() => _CadastroDeNotasState();
 }
 
 class _CadastroDeNotasState extends State<CadastroDeNotas> {
+  Student _student;
+
+  final _n1Controller = TextEditingController();
+  final _n2Controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+      _student = Student.fromMap(widget.student.toMap());
+
+      _n1Controller.text = _student.n1.toString();
+      _n2Controller.text = _student.n2.toString();
+    
+  }
+
    TextEditingController inputUsuario = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -31,7 +50,8 @@ class _CadastroDeNotasState extends State<CadastroDeNotas> {
               Padding(
                 padding: EdgeInsets.fromLTRB(120, 10, 120, 10),
                 child: TextField(
-                    controller: inputUsuario,
+                    controller: _n1Controller,
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(fillColor: Colors.white, border: OutlineInputBorder(), filled: true, hintText: "Nota 1:"),
                   ),
               ),
@@ -39,7 +59,8 @@ class _CadastroDeNotasState extends State<CadastroDeNotas> {
               Padding(
                 padding: EdgeInsets.fromLTRB(120, 10, 120, 10),
                 child: TextField(
-                    controller: inputUsuario,
+                    controller: _n2Controller,
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(fillColor: Colors.white, border: OutlineInputBorder(), filled: true, hintText: "Nota 2:"),
                   ),
               ),
@@ -48,7 +69,10 @@ class _CadastroDeNotasState extends State<CadastroDeNotas> {
                 child: Text("Salvar", style: TextStyle(color: Colors.white, fontSize: 25),),
                 elevation: 0,
                 color: Color(0xff1620f5),
-                onPressed: (){},
+                onPressed: ()
+                {
+                  Navigator.pop(context, _student);
+                },
               ),
             ],
           ) ,

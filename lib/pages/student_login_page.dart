@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:iteracao1/pages/grade_check_page.dart';
 class LoginAlunoTela extends StatefulWidget {
-  const LoginAlunoTela({ Key? key }) : super(key: key);
 
   @override
   _LoginAlunoTelaState createState() => _LoginAlunoTelaState();
 }
 
 class _LoginAlunoTelaState extends State<LoginAlunoTela> {
-  TextEditingController inputUsuario = TextEditingController();
+  final _nameController = TextEditingController();
+  final _passController = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +32,7 @@ class _LoginAlunoTelaState extends State<LoginAlunoTela> {
               Padding(
                 padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                 child: TextField(
-                    controller: inputUsuario,
+                    controller: _nameController,
                     decoration: InputDecoration(fillColor: Colors.white, border: OutlineInputBorder(), filled: true, hintText: "Usuário:"),
                   ),
               ),
@@ -39,7 +40,7 @@ class _LoginAlunoTelaState extends State<LoginAlunoTela> {
               Padding(
                 padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                 child: TextField(
-                    controller: inputUsuario,
+                    controller: _passController,
                     decoration: InputDecoration(fillColor: Colors.white, border: OutlineInputBorder(), filled: true, hintText: "Senha:"),
                   ),
               ),

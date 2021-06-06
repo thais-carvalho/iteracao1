@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 class PortalDoAluno extends StatefulWidget {
-  const PortalDoAluno({ Key? key }) : super(key: key);
 
   @override
   _PortalDoAlunoState createState() => _PortalDoAlunoState();
 }
 
 class _PortalDoAlunoState extends State<PortalDoAluno> {
-  TextEditingController inputUsuario = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

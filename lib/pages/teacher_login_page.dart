@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:iteracao1/pages/student_list_page.dart';
 
 class LoginProfessorTela extends StatefulWidget {
-  const LoginProfessorTela({ Key? key }) : super(key: key);
 
   @override
   _LoginProfessorTelaState createState() => _LoginProfessorTelaState();
 }
 
 class _LoginProfessorTelaState extends State<LoginProfessorTela> {
-  TextEditingController inputUsuario = TextEditingController();
+  final _nameController = TextEditingController();
+  final _passController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +33,7 @@ class _LoginProfessorTelaState extends State<LoginProfessorTela> {
               Padding(
                 padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                 child: TextField(
-                    controller: inputUsuario,
+                    controller: _nameController,
                     decoration: InputDecoration(fillColor: Colors.white, border: OutlineInputBorder(), filled: true, hintText: "Usuário:"),
                   ),
               ),
@@ -40,7 +41,7 @@ class _LoginProfessorTelaState extends State<LoginProfessorTela> {
               Padding(
                 padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                 child: TextField(
-                    controller: inputUsuario,
+                    controller: _passController,
                     decoration: InputDecoration(fillColor: Colors.white, border: OutlineInputBorder(), filled: true, hintText: "Senha:"),
                   ),
               ),

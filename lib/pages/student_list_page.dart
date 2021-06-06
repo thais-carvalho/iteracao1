@@ -1,14 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:iteracao1/pages/grade_crud_page.dart';
 import 'package:iteracao1/pages/student_crud_page.dart';
+import 'package:iteracao1/models/student_model.dart';
+import 'dart:io';
 class ListagemDeAluno extends StatefulWidget {
-  const ListagemDeAluno({ Key? key }) : super(key: key);
 
   @override
   _ListagemDeAlunoState createState() => _ListagemDeAlunoState();
 }
 
 class _ListagemDeAlunoState extends State<ListagemDeAluno> {
-  TextEditingController inputUsuario = TextEditingController();
+  List<Student> students = List();
+
+  StudentHelper helper = StudentHelper();
+
+  @override
+  void initState() {
+    super.initState();
+
+    _getAllStudents();
+
+    Student s = Student();
+    s.name = "Fulano";
+    s.email = "fula@mail.com";
+    s.pass = "asdf";
+    s.n1 = 13;
+    helper.saveStudent(s);
+
+    helper.getAllStudents().then((list)
+    {
+      print(list);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,55 +52,84 @@ class _ListagemDeAlunoState extends State<ListagemDeAluno> {
         child: Icon(Icons.add),
         backgroundColor: Colors.blue,
       ),
-      body: Container (
-        padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-        decoration: BoxDecoration(
-          color: Color(0xff0a95fa)
-        ),
-        child: Center(
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(),
-              DataTable(
-                columns: [
-                  DataColumn(label: Text("Nome:")),
-                  DataColumn(label: Text("Nota 1:")),
-                  DataColumn(label: Text("Nota 2:")),
-                  DataColumn(label: Icon(Icons.edit))
-                ],
-                rows: [
-                  DataRow(
-                    cells: [
-                      DataCell(Text("nalberty")),
-                      DataCell(Text("8")),
-                      DataCell(Text("10")),
-                      DataCell(Icon(Icons.edit)),  
-                    ]
-                  ),
-                  DataRow(
-                    cells: [
-                      DataCell(Text("nalberty")),
-                      DataCell(Text("8")),
-                      DataCell(Text("10")),
-                      DataCell(Icon(Icons.edit)),  
-                    ]
-                  ),
-                  DataRow(
-                    cells: [
-                      DataCell(Text("nalberty")),
-                      DataCell(Text("8")),
-                      DataCell(Text("10")),
-                      DataCell(Icon(Icons.edit)),  
-                    ]
-                  ),
-                ],
-              )
-            ],
-          ) ,
-        ),
+      body: ListView.builder
+      (
+        padding: EdgeInsets.all(10),
+        itemCount: students.length,
+        itemBuilder: (context, index)
+        {
+          return _studentCard(context, index);
+        },
       ),
       
     );
+  }
+  Widget _studentCard(BuildContext context, int index)
+  {
+    return GestureDetector
+    (
+      child: Card
+      (
+        child: Padding
+        (
+          padding: EdgeInsets.all(10.0),
+          child: Row
+          (
+            children:
+            [
+              Container
+              (
+                width: 80.0,
+                height: 80.0,
+              ),
+              Padding
+              (
+                padding: EdgeInsets.only(left: 10.0),
+                child: Column
+                (
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: 
+                  [
+                    Text
+                    (
+                      students[index].name,
+                      style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold)
+                    ),
+                    Text
+                    (
+                      students[index].email ?? "",
+                      style: TextStyle(fontSize: 18.0),
+                    ),
+                    Text
+                    (
+                      students[index].n1 ?? "",
+                      style: TextStyle(fontSize: 18.0),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+      onTap: () async
+      {
+        final selecStudent = await Navigator.push(context, MaterialPageRoute(builder: (context) => CadastroDeNotas(student: students[index])));
+        helper.saveStudent(selecStudent);
+        _getAllStudents();
+      },
+    );
+  }
+
+  void _getAllStudents()
+  {
+    StudentHelper instance = StudentHelper();
+    instance.getAllStudents().then((list)
+    {
+      setState(()
+      {
+        students = list;
+      });
+    });
   }
 }
