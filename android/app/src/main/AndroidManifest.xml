@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.eng.iteracao1">
+    package="com.example.iteracao1">
    <application
         android:label="iteracao1"
         android:icon="@mipmap/ic_launcher">

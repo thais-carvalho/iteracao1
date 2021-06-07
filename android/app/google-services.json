@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "736182695190",
+    "project_id": "interacao01-90e4c",
+    "storage_bucket": "interacao01-90e4c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736182695190:android:75e75614947f69f2f10c37",
+        "android_client_info": {
+          "package_name": "com.example.iteracao1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736182695190-8258c2rnmbbl3gloe1hd0ddrsuj7rarb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.iteracao1",
+            "certificate_hash": "4bda1023fbefce3e6d380b48f04f2387ae06c8b2"
+          }
+        },
+        {
+          "client_id": "736182695190-c6l2pb9t48k9dnc4crdm577t5fcadrqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbj2or2jIEPJuYi1L8bCAdqx2rh5MWHDw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736182695190-c6l2pb9t48k9dnc4crdm577t5fcadrqd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

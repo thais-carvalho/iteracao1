@@ -8,3 +8,7 @@ Primeira iteração do projeto de PS
 - Nícolas Arthur
 - Varley Miranda
 - Sílvio Otávio
+
+### login do professor
+Email: teacher@mail.com
+password: 123456789

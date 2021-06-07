@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iteracao1/pages/teacher_login_page.dart';
-import 'package:iteracao1/pages/student_login_page.dart';
+import 'package:iteracao1/pages/teacher/teacher_login_page.dart';
+import 'package:iteracao1/pages/students/student_login_page.dart';
 
 class TelaInicio extends StatefulWidget {
 
