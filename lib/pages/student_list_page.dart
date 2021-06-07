@@ -37,8 +37,6 @@ class _ListagemDeAlunoState extends State<ListagemDeAluno> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back),
-        elevation: 0,
         title: Text("Listagem de aluno"),
         centerTitle: true,
         backgroundColor: Color(0xff1620f5),

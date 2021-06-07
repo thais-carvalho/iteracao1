@@ -16,7 +16,6 @@ class _CadastroAlunoTelaState extends State<CadastroAlunoTela> {
   Widget build(BuildContext context) {
      return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back),
         elevation: 0,
         title: Text("Cadastro de alunos"),
         centerTitle: true,
