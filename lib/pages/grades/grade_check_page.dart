@@ -10,8 +10,6 @@ class _PortalDoAlunoState extends State<PortalDoAluno> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back),
-        elevation: 0,
         title: Text("Portal do aluno"),
         centerTitle: true,
         backgroundColor: Color(0xff1620f5),

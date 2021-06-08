@@ -65,7 +65,6 @@ class _CadastroAlunoTelaState extends State<CadastroAlunoTela> {
   Widget build(BuildContext context) {
      return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back),
         elevation: 0,
         title: Text("Cadastro de alunos"),
         centerTitle: true,
@@ -80,7 +79,7 @@ class _CadastroAlunoTelaState extends State<CadastroAlunoTela> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Login", style: TextStyle(color: Colors.white, fontSize: 30)),
+                Text("Cadastrar", style: TextStyle(color: Colors.white, fontSize: 30)),
                 SizedBox(height: 0, ),
                 Padding(
                   padding: EdgeInsets.fromLTRB(30, 10, 30, 10),

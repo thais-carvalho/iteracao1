@@ -31,7 +31,6 @@ class _CadastroDeNotasState extends State<CadastroDeNotas> {
   Widget build(BuildContext context) {
      return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back),
         elevation: 0,
         title: Text("Cadastro de Notas"),
         centerTitle: true,
@@ -45,7 +44,6 @@ class _CadastroDeNotasState extends State<CadastroDeNotas> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Nome do Aluno", style: TextStyle(color: Colors.white, fontSize: 30)),
               SizedBox(height: 30, ),
               Padding(
                 padding: EdgeInsets.fromLTRB(120, 10, 120, 10),
