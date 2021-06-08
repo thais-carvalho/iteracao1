@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iteracao1/pages/grade_check_page.dart';
+import 'package:iteracao1/pages/grades/grade_check_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginAlunoTela extends StatefulWidget {

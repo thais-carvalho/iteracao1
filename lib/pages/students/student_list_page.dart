@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iteracao1/pages/grade_crud_page.dart';
+import 'package:iteracao1/pages/grades/grade_crud_page.dart';
 import 'package:iteracao1/pages/students/student_crud_page.dart';
 import 'package:iteracao1/models/student_model.dart';
 import 'dart:io';
