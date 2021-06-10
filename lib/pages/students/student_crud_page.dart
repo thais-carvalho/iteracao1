@@ -25,6 +25,8 @@ class _CadastroAlunoTelaState extends State<CadastroAlunoTela> {
     FirebaseFirestore.instance.collection('alunos').doc(firebaseUser.uid).set({
       'nome': name,
       'email': email,
+      'nota 01': '0',
+      'nota 02': '0'
     }).then((value) => print('adicionado'));
   }
 

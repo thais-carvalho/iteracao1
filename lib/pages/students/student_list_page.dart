@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:iteracao1/pages/grade_crud_page.dart';
+import 'package:iteracao1/pages/home_page.dart';
 import 'package:iteracao1/pages/students/student_crud_page.dart';
 import 'package:iteracao1/models/student_model.dart';
+import 'package:iteracao1/pages/grade_crud_page.dart';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ListagemDeAluno extends StatefulWidget {
 
@@ -14,13 +17,20 @@ class ListagemDeAluno extends StatefulWidget {
 
 class _ListagemDeAlunoState extends State<ListagemDeAluno> {
 
-  DocumentSnapshot uid;
+  Future _signOut() async {
+    await FirebaseAuth.instance.signOut();
+    print('Deslogado');
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TelaInicio()));
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back),
+        leading: IconButton(
+          onPressed: _signOut, 
+          icon: Icon(Icons.arrow_back)
+        ),
         elevation: 0,
         title: Text("Listagem de aluno"),
         centerTitle: true,
@@ -42,12 +52,14 @@ class _ListagemDeAlunoState extends State<ListagemDeAluno> {
 }
 
 class StudentsCard extends StatefulWidget {
-
   @override
   _StudentsCardState createState() => _StudentsCardState();
 }
 
 class _StudentsCardState extends State<StudentsCard> {
+
+  String alunoUid;
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
@@ -72,8 +84,10 @@ class _StudentsCardState extends State<StudentsCard> {
       GestureDetector(
         onTap: (){
           setState(() {
-            print('era para capturar o uid');
+            alunoUid = doc.id;
           });
+          print(alunoUid);
+          Navigator.push(context, MaterialPageRoute(builder: (context) => CadastroDeNotas(alunoUid)));
         },
         child: Card(
           child: ListTile(

@@ -17,6 +17,28 @@ class _LoginProfessorTelaState extends State<LoginProfessorTela> {
 
   String email, password;
 
+
+  Future _register() async{
+      try {
+        UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: 'professor@mail.com',
+          password: '123456789'
+        );
+
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'weak-password') {
+          print('senha muito fraca');
+        } else if (e.code == 'email-already-in-use') {
+          print('email já existe');
+        }
+      } catch (e) {
+        print(e);
+      }
+
+  }
+
+
+
   Future _login() async{
 
     setState(() {

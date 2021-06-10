@@ -10,5 +10,5 @@ Primeira iteração do projeto de PS
 - Sílvio Otávio
 
 ### login do professor
-Email: teacher@mail.com
+Email: professor@mail.com
 password: 123456789
