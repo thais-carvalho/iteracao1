@@ -26,6 +26,8 @@ class _CadastroDeNotasState extends State<CadastroDeNotas> {
   String nota1, nota2, uid;
   Future _addNotas(){
     setState(() {
+      _n1Controller.text = _student.n1.toString();
+      _n2Controller.text = _student.n2.toString();
       nota1 = _n1Controller.text;
       nota2 = _n2Controller.text;
     });
@@ -36,7 +38,8 @@ class _CadastroDeNotasState extends State<CadastroDeNotas> {
           .then((value) => print('Notas atualizadas'))
           .catchError((error) => print('Error: $error'));
 
-    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ListagemDeAluno()));
+    //Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ListagemDeAluno()));
+    Navigator.pop(context);
 
   }
 
@@ -46,12 +49,12 @@ class _CadastroDeNotasState extends State<CadastroDeNotas> {
   Widget build(BuildContext context) {
      return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
+        /*leading: IconButton(
           onPressed: (){
-            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ListagemDeAluno()));
+            //Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ListagemDeAluno()));
+            Navigator.pop(context);
           }, 
-          icon: Icon(Icons.arrow_back)
-        ),
+        ),*/
         elevation: 0,
         title: Text("Cadastro de Notas"),
         centerTitle: true,
@@ -67,7 +70,6 @@ class _CadastroDeNotasState extends State<CadastroDeNotas> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Nome do Aluno", style: TextStyle(color: Colors.white, fontSize: 30)),
                 SizedBox(height: 30, ),
                 Padding(
                   padding: EdgeInsets.fromLTRB(120, 10, 120, 10),

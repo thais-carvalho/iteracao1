@@ -20,17 +20,17 @@ class _ListagemDeAlunoState extends State<ListagemDeAluno> {
   Future _signOut() async {
     await FirebaseAuth.instance.signOut();
     print('Deslogado');
-    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TelaInicio()));
+    //Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TelaInicio()));
+    Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
+        /*leading: IconButton(
           onPressed: _signOut, 
-          icon: Icon(Icons.arrow_back)
-        ),
+        ),*/
         elevation: 0,
         title: Text("Listagem de aluno"),
         centerTitle: true,

@@ -15,7 +15,7 @@ class _PortalDoAlunoState extends State<PortalDoAluno> {
   Future _signOut() async {
     await FirebaseAuth.instance.signOut();
     print('Deslogado');
-    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TelaInicio()));
+    Navigator.pop(context);
   }
 
   final _firebaseUser = FirebaseAuth.instance.currentUser;

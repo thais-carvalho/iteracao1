@@ -49,7 +49,8 @@ class _CadastroAlunoTelaState extends State<CadastroAlunoTela> {
 
        _addData(nome, email);
 
-        Navigator.push(context, MaterialPageRoute(builder: (context) => ListagemDeAluno()));
+        //Navigator.push(context, MaterialPageRoute(builder: (context) => ListagemDeAluno()));
+        Navigator.pop(context);
 
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
@@ -67,7 +68,6 @@ class _CadastroAlunoTelaState extends State<CadastroAlunoTela> {
   Widget build(BuildContext context) {
      return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back),
         elevation: 0,
         title: Text("Cadastro de alunos"),
         centerTitle: true,
@@ -88,6 +88,7 @@ class _CadastroAlunoTelaState extends State<CadastroAlunoTela> {
                   padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                   child: TextField(
                       controller: _nameController,
+                      keyboardType: TextInputType.name,
                       decoration: InputDecoration(fillColor: Colors.white, border: OutlineInputBorder(), filled: true, hintText: "Nome completo:"),
                     ),
                 ),
@@ -96,6 +97,7 @@ class _CadastroAlunoTelaState extends State<CadastroAlunoTela> {
                   padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                   child: TextField(
                       controller: _emailController,
+                      keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(fillColor: Colors.white, border: OutlineInputBorder(), filled: true, hintText: "Email:"),
                     ),
                 ),
@@ -104,6 +106,7 @@ class _CadastroAlunoTelaState extends State<CadastroAlunoTela> {
                   padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                   child: TextField(
                       controller: _passController,
+                      obscureText: true,
                       decoration: InputDecoration(fillColor: Colors.white, border: OutlineInputBorder(), filled: true, hintText: "Senha:"),
                     ),
                 ),
@@ -112,6 +115,7 @@ class _CadastroAlunoTelaState extends State<CadastroAlunoTela> {
                   padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                   child: TextField(
                       controller: _confirmController,
+                      obscureText: true,
                       decoration: InputDecoration(fillColor: Colors.white, border: OutlineInputBorder(), filled: true, hintText: "Confirmação de senha:"),
                     ),
                 ),

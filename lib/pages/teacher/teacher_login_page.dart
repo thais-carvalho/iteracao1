@@ -44,6 +44,8 @@ class _LoginProfessorTelaState extends State<LoginProfessorTela> {
     setState(() {
       email = _nameController.text;
       password = _passController.text;
+      _nameController.text = "";
+      _passController.text = "";
     });
 
     try {
@@ -89,6 +91,7 @@ class _LoginProfessorTelaState extends State<LoginProfessorTela> {
                   padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                   child: TextField(
                       controller: _nameController,
+                      keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(fillColor: Colors.white, border: OutlineInputBorder(), filled: true, hintText: "Usuário:"),
                     ),
                 ),
@@ -97,6 +100,7 @@ class _LoginProfessorTelaState extends State<LoginProfessorTela> {
                   padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                   child: TextField(
                       controller: _passController,
+                      obscureText: true,
                       decoration: InputDecoration(fillColor: Colors.white, border: OutlineInputBorder(), filled: true, hintText: "Senha:"),
                     ),
                 ),
