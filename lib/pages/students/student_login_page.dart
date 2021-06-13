@@ -53,6 +53,7 @@ class _LoginAlunoTelaState extends State<LoginAlunoTela> {
       backgroundColor: Color(0xff0a95fa),
       body: SingleChildScrollView(
         child: Container (
+          padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: Color(0xff0a95fa)
           ),
