@@ -26,8 +26,7 @@ class _CadastroDeNotasState extends State<CadastroDeNotas> {
   String nota1, nota2, uid;
   Future _addNotas(){
     setState(() {
-      _n1Controller.text = _student.n1.toString();
-      _n2Controller.text = _student.n2.toString();
+      
       nota1 = _n1Controller.text;
       nota2 = _n2Controller.text;
     });
