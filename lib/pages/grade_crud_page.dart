@@ -6,7 +6,6 @@ import 'package:iteracao1/pages/students/student_list_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CadastroDeNotas extends StatefulWidget {
-
   //final Student student;
   String alunoUid;
 
@@ -19,34 +18,33 @@ class CadastroDeNotas extends StatefulWidget {
 class _CadastroDeNotasState extends State<CadastroDeNotas> {
   Student _student;
 
-
+//UMA SUGESTÃO SERIA CONTROLAR INTERVALO (0,10) PARA NÃO INSERIR NOTA INVÁLIDA
   final _n1Controller = TextEditingController();
   final _n2Controller = TextEditingController();
 
   String nota1, nota2, uid;
-  Future _addNotas(){
+  Future _addNotas() {
     setState(() {
-      
       nota1 = _n1Controller.text;
       nota2 = _n2Controller.text;
     });
 
     CollectionReference aluno = FirebaseFirestore.instance.collection('alunos');
 
-    aluno.doc(widget.alunoUid).update({'nota 01': nota1, 'nota 02': nota2})
-          .then((value) => print('Notas atualizadas'))
-          .catchError((error) => print('Error: $error'));
+    aluno
+        .doc(widget.alunoUid)
+        .update({'nota 01': nota1, 'nota 02': nota2})
+        .then((value) => print('Notas atualizadas'))
+        .catchError((error) => print('Error: $error'));
 
     //Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ListagemDeAluno()));
     Navigator.pop(context);
-
   }
 
-
-   TextEditingController inputUsuario = TextEditingController();
+  TextEditingController inputUsuario = TextEditingController();
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
+    return Scaffold(
       appBar: AppBar(
         /*leading: IconButton(
           onPressed: (){
@@ -60,46 +58,60 @@ class _CadastroDeNotasState extends State<CadastroDeNotas> {
         backgroundColor: Color(0xff1620f5),
       ),
       body: SingleChildScrollView(
-        child: Container (
+        child: Container(
           padding: EdgeInsets.only(bottom: 150),
-          decoration: BoxDecoration(
-            color: Color(0xff0a95fa)
-          ),
+          decoration: BoxDecoration(color: Color(0xff0a95fa)),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 30, ),
+                SizedBox(
+                  height: 30,
+                ),
                 Padding(
                   padding: EdgeInsets.fromLTRB(120, 10, 120, 10),
                   child: TextField(
-                      controller: _n1Controller,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(fillColor: Colors.white, border: OutlineInputBorder(), filled: true, hintText: "Nota 1:"),
-                    ),
+                    controller: _n1Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        filled: true,
+                        hintText: "Nota 1:"),
+                  ),
                 ),
-                SizedBox(height: 15,),
+                SizedBox(
+                  height: 15,
+                ),
                 Padding(
                   padding: EdgeInsets.fromLTRB(120, 10, 120, 10),
                   child: TextField(
-                      controller: _n2Controller,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(fillColor: Colors.white, border: OutlineInputBorder(), filled: true, hintText: "Nota 2:"),
-                    ),
+                    controller: _n2Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        filled: true,
+                        hintText: "Nota 2:"),
+                  ),
                 ),
-                SizedBox(height: 90,),
+                SizedBox(
+                  height: 90,
+                ),
                 RaisedButton(
-                  child: Text("Salvar", style: TextStyle(color: Colors.white, fontSize: 25),),
+                  child: Text(
+                    "Salvar",
+                    style: TextStyle(color: Colors.white, fontSize: 25),
+                  ),
                   elevation: 0,
                   color: Color(0xff1620f5),
                   onPressed: _addNotas,
                 ),
               ],
-            ) ,
+            ),
           ),
         ),
       ),
-      
     );
   }
 }
